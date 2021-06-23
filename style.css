@@ -9,12 +9,13 @@
 
 .left {
     left: 0;
-    background-color: rgba(17, 17, 17, 0.29);
+    background-color: #2b002b;
 }
 
 .right {
     right: 0;
-    background-color: #4e004e;
+    background-color: #ffffff;
+
 }
 
 .centered {
@@ -30,59 +31,54 @@
     border-radius: 50%;
 }
 
-.bouton{
+.imageChanger{
+    background-repeat: no-repeat;
+    background-position: top;
+
+}
+
+.boutonVelo{
     display: flex;
-    background-color: #4e004e;
+    position: center;
+    margin: 50px;
+    border: 0;
+    line-height: 2.5;
+    padding: 40px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
     border-radius: 10px;
-    border: 4px double #cccccc;
-    color: #eeeeee;
-    box-shadow: 2px 4px 2px 2px purple;
+    background-color: rgb(117, 0, 130);
+    background-image: linear-gradient(to top left,
+    rgba(0, 0, 0, .2),
+    rgba(0, 0, 0, .2) 30%,
+    rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+    inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+
+
+.boutonVelo:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+    inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+#paragraphe{
     text-align: center;
-    font-size: 28px;
-    padding: 30px;
-    width: 200px;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    -o-transition: all 0.5s;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: auto;
-    margin-top: 100px ;
+    margin-top: 500px;
+    background-color: purple;
+    font-size: x-large;
+    box-shadow: inset 2px -2px 3px rgba(0, 0, 0, 0.6);
+    color: white;
 }
 
-.bouton:hover{
-    background-color: mediumpurple ;
-}
-
-
-#bike{
-    text-align:center;
-    height:500px;
-    background-image: url("27.1.jpg");
-    background-position:center;
-    border-radius:20px;
-    background-repeat:no-repeat;
-}
-
-.description{
-    background-color: black;
-    color: #4e004e;
-    font-size:20px;
-    box-shadow: 2px 4px 2px 2px purple;
-}
-.detail{
-    background-color: mediumpurple;
-
-}
-
-h1, h2{
+#texte{
+    background-color: #5b076d;
+    margin-top: -30px;
+    font-size: x-large;
     text-align: center;
-}
-
-
-li{
-    font-size: large;
-    text-align: left;
-    margin-left: 20px;
-    padding-top: 20px;
+    box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    color: white;
 }

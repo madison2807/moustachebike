@@ -1,55 +1,64 @@
-<!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
-    <title>MOUSTACHE BIKE</title>
-
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
-
-
-
-
+    <div id="app" >
         <div class="split left">
-              <img src="logomoustachebike.jpg" width="930px">
-
-
-            <div id="appuyer">
-                <button type="button" class="bouton" @click="changerVelo('marque');">lundi 27.1</button>
-                <button type="button" class="bouton" @click="changerVelo('marque');">lundi27.3</button>
-                <button type="button" class="bouton" @click="changerVelo('marque');">lundi27.5</button>
-            </div>
+                 <img src="logomoustachebike.jpg" width="670px">
+             <div class="boutonVelo" v-for="Velo in listeVelos" @click="selectedBike = Velo">{{Velo.text}}</div>
         </div>
 
 
-            <div class="split right">
-                <div class="image">
-                    <div id="bike" onclick="imageVelo('velo1');"></div>
-                </div>
-                        <div class="description">
-                            <h1> DESCRIPTION </h1>
-                            <p>Lundi est le premier Moustache que l'on a dessiné. Nous l'avions voulu joli, confortable, pratique, différent et surtout facile d'accès. Cette version renouvelée pour la saison 10 en reprend tous les fondamentaux et les bonifie encore. </p>
+        <div class=" split right imageChanger" :style="{ backgroundImage: 'url(' + selectedBike.image + ')' }">
 
-                            <div class="detail">
-                                <h2> DETAILS</h2>
-                                <ul class="liste">
-                                    <li> Cadre Lundi 27 à enjambement bas, Aluminium 6061 T4-T6, tubes hydroformés et extrudés à triple cavités pour une rigidité optimale. Intégration exclusive pour batterie Bosch PowerTube (verticale), passage de gaines intégré</li>
-                                    <br>
-                                    <li>Fourche Lundi, Aluminium avec passage des câbles intégré et fixations pour porte-bagages avan</li>
-                                    <br>
-                                    <li>Bosch, Active Line Plus - Puissance nominale 250W, Max 415W, 50 Nm. Assistance jusqu'à 270 % - Naturel - Silencieux - Sans friction - Compact - Léger </li>
-
-
-                                </ul>
-                            </div>
-                        </div>
+            <div id="paragraphe">
+                <ul>
+                    DESCRIPTION<br>
+                    {{selectedBike.descritpion}}<br>
+                </ul>
+            </div>
+<br>
+            <div id="texte">
+                <ul>
+                    DETAILS <br>{{selectedBike.pneu}}<br>
+                   <br> {{ selectedBike.cadre}}<br>
+                   <br> TITRE {{selectedBike.text}}<br>
+                   <br> PRIX:{{selectedBike.prix}}<br>
+                </ul>
             </div>
 
-    <script>
 
 
-    </script>
-    </body>
+        </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            selectedBike:{},
+            listeVelos: [
+                {text: 'Lundi 27.1', image: '27.1.jpg', descritpion:'Rien de tel que démarrer sa semaine, sourire aux lèvres au guidon de Lundi 27.1. Tellement agréable à rouler, ultra naturel, silencieux et économe en énergie.', pneu:'Schwalbe, Super Moto-X, 27.5x2.40', cadre:'Lundi 27 à enjambement bas, Aluminium 6061 T4-T6, tubes hydroformés et extrudés à triple cavités pour une rigidité optimale. Intégration exclusive pour batterie Bosch PowerTube (verticale), passage de gaines intégré'  ,prix:'2990€'},
+                {text: 'Lundi 27.3', image: '27.3.jpg',descritpion:'La terre est ronde, mais toutes les villes ne sont pas plates. Affronter les montées les plus sévères ne sera qu\'une formalité au guidon de Lundi 27.3 bien assisté par le puissant moteur Bosch Performance et sa batterie de 500Wh. ', pneu: 'Schwalbe, Super Moto-X, 27.5x2.40', cadre: 'Lundi 27 à enjambement bas, Aluminium 6061 T4-T6, tubes hydroformés et extrudés à triple cavités pour une rigidité optimale. Intégration exclusive pour batterie Bosch PowerTube (verticale), passage de gaines intégré',prix:'3399 €'},
+                {text: 'Lundi 27.5', image: '27.5.jpg', descritpion:'Fluidité des changements de vitesse, fluidité du moteur, fluidité des déplacements. Lundi 27.5 vous aidera à rester calme et serein même au milieu de la jungle urbaine.', pneu:'Schwalbe, Super Moto-X, 27.5x2.40', cadre: 'Lundi 27 à enjambement bas, Aluminium 6061 T4-T6, tubes hydroformés et extrudés à triple cavités pour une rigidité optimale. Intégration exclusive pour batterie Bosch PowerTube (verticale), passage de gaines intégré',prix:'3899 €'},
+            ]
+        },
+        computed: {
+        },
+        methods: {
+        },
+        created: function () {
+            this.selectedBike = this.listeVelos[0];
+            console.log(this.selectedBike);
+        }
+    })
+</script>
+</body>
 </html>
